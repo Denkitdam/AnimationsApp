@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class AnimationsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
