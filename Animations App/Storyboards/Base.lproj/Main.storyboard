@@ -16,7 +16,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="J7K-XH-f9R">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="J7K-XH-f9R" customClass="SpringView" customModule="SpringAnimation">
                                 <rect key="frame" x="57.666666666666657" y="153.66666666666669" width="278" height="173.66666666666669"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="7bR-B8-Xvj">
@@ -71,6 +71,9 @@
                                 <state key="normal" title="Run">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="animationsButtonTapped" destination="BYZ-38-t0r" eventType="touchUpInside" id="Tat-Be-uEK"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -84,6 +87,14 @@
                             <constraint firstItem="J7K-XH-f9R" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ZvJ-gq-M8Z"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="AnimationsView" destination="J7K-XH-f9R" id="bTR-wx-ty0"/>
+                        <outlet property="curveLabel" destination="osw-g5-v5N" id="wcZ-Ks-tfX"/>
+                        <outlet property="delayLabel" destination="TTH-Oe-nKX" id="RhA-4S-TCN"/>
+                        <outlet property="durationLabel" destination="NfD-h1-rvz" id="X3N-JO-1Y1"/>
+                        <outlet property="forceLabel" destination="TIb-Yw-Hzh" id="JBc-I7-8Wd"/>
+                        <outlet property="presetLabel" destination="H91-fI-VcA" id="no3-GT-NH6"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

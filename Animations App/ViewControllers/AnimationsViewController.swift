@@ -6,14 +6,26 @@
 //
 
 import UIKit
+import SpringAnimation
 
 class AnimationsViewController: UIViewController {
+    
+    @IBOutlet var AnimationsView: SpringView!
+    
+    @IBOutlet var presetLabel: UILabel!
+    @IBOutlet var curveLabel: UILabel!
+    @IBOutlet var forceLabel: UILabel!
+    @IBOutlet var durationLabel: UILabel!
+    @IBOutlet var delayLabel: UILabel!
 
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+       
     }
 
-
+    @IBAction func animationsButtonTapped() {
+        
+    }
 }
 
