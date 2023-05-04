@@ -15,10 +15,13 @@ struct Animation {
     
     static func getAnimations() -> [Animation] {
         var animations: [Animation] = []
-        while animations.count <= DataStore.shared.animationPresets.count {
+        let presets = DataStore.shared.animationPresets.shuffled()
+        let curves = DataStore.shared.animationsCurves.shuffled()
+        
+        for index in 0..<presets.count {
             let animation = Animation(
-                preset: DataStore.shared.animationPresets.randomElement() ?? "",
-                curve: DataStore.shared.animationsCurves.randomElement() ?? "",
+                preset: presets[index],
+                curve: curves[index],
                 force: Double.random(in: 0.0...2.0),
                 duration: Double.random(in: 0.0...2.0),
                 delay: 1.0
