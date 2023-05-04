@@ -21,6 +21,7 @@ final class AnimationsViewController: UIViewController {
     @IBOutlet var runButton: UIButton!
 
     private var animations = DataStore.shared.getAnimations()
+    private var firstTap = true
     
     
     override func viewDidLoad() {
@@ -32,20 +33,23 @@ final class AnimationsViewController: UIViewController {
     }
 
     @IBAction func animationsButtonTapped() {
-        let firstAnimation = animations.first
-        setup(firstAnimation)
-        animationsView.animate()
-        setupLabelsFor(animation: firstAnimation)
-
-        let secondAnimation = animations.last
-        runButton.setTitle("Run \(secondAnimation?.preset ?? "")", for: .normal)
-        setup(secondAnimation)
-        animationsView.animate()
-        setupLabelsFor(animation: secondAnimation)
-        
-        animations.shuffle()
-        runButton.setTitle("Run \(animations.first?.preset ?? "")", for: .normal)
-        
+        if firstTap {
+            let firstAnimation = animations.first
+            setup(firstAnimation)
+            animationsView.animate()
+            setupLabelsFor(animation: firstAnimation)
+            firstTap = false
+            runButton.setTitle("Run \(animations.last?.preset ?? "")", for: .normal)
+        } else {
+            let secondAnimation = animations.last
+            setup(secondAnimation)
+            animationsView.animate()
+            setupLabelsFor(animation: secondAnimation)
+            
+            animations.shuffle()
+            runButton.setTitle("Run \(animations.first?.preset ?? "")", for: .normal)
+            firstTap = true
+        }
     }
     
     private func setupLabelsFor(animation: Animation?) {
