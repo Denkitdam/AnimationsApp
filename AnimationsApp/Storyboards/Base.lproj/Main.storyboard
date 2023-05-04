@@ -11,7 +11,7 @@
         <!--Animations View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="AnimationsViewController" customModule="Animations_App" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="AnimationsViewController" customModule="AnimationsApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -94,6 +94,7 @@
                         <outlet property="durationLabel" destination="NfD-h1-rvz" id="X3N-JO-1Y1"/>
                         <outlet property="forceLabel" destination="TIb-Yw-Hzh" id="JBc-I7-8Wd"/>
                         <outlet property="presetLabel" destination="H91-fI-VcA" id="no3-GT-NH6"/>
+                        <outlet property="runButton" destination="fBO-26-QV7" id="R6t-xJ-1w0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
