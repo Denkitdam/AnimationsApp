@@ -20,7 +20,7 @@ final class AnimationsViewController: UIViewController {
     
     @IBOutlet var runButton: UIButton!
 
-    private var animations = DataStore.shared.getAnimations()
+    private var animations = Animation.getAnimations()
     private var firstTap = true
     
     
