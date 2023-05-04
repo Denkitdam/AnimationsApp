@@ -32,31 +32,20 @@ final class AnimationsViewController: UIViewController {
     }
 
     @IBAction func animationsButtonTapped() {
-            let firstAnimation = animations.first
-            
-            animationsView.animation = firstAnimation?.preset ?? ""
-            animationsView.curve = firstAnimation?.curve ?? ""
-            animationsView.force = firstAnimation?.force ?? 0
-            animationsView.duration = firstAnimation?.duration ?? 0
-            animationsView.delay = firstAnimation?.delay ?? 0
-            
-            animationsView.animate()
-            setupLabelsFor(animation: firstAnimation)
-            
-            let secondAnimation = animations.last
-            runButton.setTitle("Run \(secondAnimation?.preset ?? "")", for: .normal)
-            
-            animationsView.animation = secondAnimation?.preset ?? ""
-            animationsView.curve = secondAnimation?.curve ?? ""
-            animationsView.force = secondAnimation?.force ?? 0
-            animationsView.duration = secondAnimation?.duration ?? 0
-            animationsView.delay = secondAnimation?.delay ?? 00
-            
-            animationsView.animate()
-            setupLabelsFor(animation: secondAnimation)
-            
-            animations.shuffle()
-            runButton.setTitle("Run \(animations.first?.preset ?? "")", for: .normal)
+        let firstAnimation = animations.first
+        setup(firstAnimation)
+        animationsView.animate()
+        setupLabelsFor(animation: firstAnimation)
+
+        let secondAnimation = animations.last
+        runButton.setTitle("Run \(secondAnimation?.preset ?? "")", for: .normal)
+        setup(secondAnimation)
+        animationsView.animate()
+        setupLabelsFor(animation: secondAnimation)
+        
+        animations.shuffle()
+        runButton.setTitle("Run \(animations.first?.preset ?? "")", for: .normal)
+        
     }
     
     private func setupLabelsFor(animation: Animation?) {
@@ -65,6 +54,13 @@ final class AnimationsViewController: UIViewController {
         forceLabel.text = "Force: \(animation?.force.formatted() ?? "")"
         durationLabel.text = "Duration: \(animation?.duration.formatted() ?? "")"
         delayLabel.text = "Delay: \(animation?.delay.formatted() ?? "")"
+    }
+    private func setup(_ animation: Animation?) {
+        animationsView.animation = animation?.preset ?? ""
+        animationsView.curve = animation?.curve ?? ""
+        animationsView.force = animation?.force ?? 0
+        animationsView.duration = animation?.duration ?? 0
+        animationsView.delay = animation?.delay ?? 00
     }
 }
 
